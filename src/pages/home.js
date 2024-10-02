@@ -160,8 +160,8 @@ export default function Home() {
         <div className="md:container bg-black p-10 mx-20 rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-5">
           <p className="text-2xl max-md:text-center font-thin">NEED A CONSULTATION ?</p>
           <div className='flex gap-4 text-lg'>
-          <a href='/contact' className="border-white border-2 text-white px-6 py-4 rounded-full hover:bg-white hover:text-black" >Chat with Sales Team</a>
-          <a href='/contact' className="bg-white text-black px-6 py-4 rounded-full border-2 hover:border-white hover:text-white hover:bg-black" >Inquiry Call</a>
+          <a href='https://wa.me/919947929822' className="border-white border-2 text-white px-6 py-4 rounded-full hover:bg-white hover:text-black" >Chat with Sales Team</a>
+          <a href='https://wa.me/919947929822' className="bg-white text-black px-6 py-4 rounded-full border-2 hover:border-white hover:text-white hover:bg-black" >Inquiry Call</a>
           </div>
         </div>
       </section>
