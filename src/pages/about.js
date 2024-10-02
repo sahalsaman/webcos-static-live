@@ -1,5 +1,5 @@
 import React from 'react'
-import bannerimg from '../../src/images/bg1.jpg'
+import bannerimg from '../../src/assets/images/bg1.jpg'
 
 export default function About() {
   return (
@@ -20,6 +20,22 @@ export default function About() {
             </div>
           </div>
         </div>
+        <section className="md:p-20 p-10 bg-black  flex justify-center">
+        <div className="md:container mx-20 rounded-3xl text-white flex flex-col md:flex-row items-center justify-evenly gap-5">
+          <div className="text-center">
+            <p className="text-7xl font-thin mb-2">20+</p>
+            <p className="text-lg font-bold uppercase">Clients</p>
+          </div>
+          <div className="text-center">
+            <p className="text-8xl font-thin mb-2">100+</p>
+            <p className="text-lg font-bold uppercase">Projects Done</p>
+          </div>
+          <div className="text-center">
+            <p className="text-7xl font-thin mb-2">10+</p>
+            <p className="text-lg font-bold uppercase">team advisors</p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

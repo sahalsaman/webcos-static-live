@@ -1,5 +1,7 @@
 import React from 'react'
-import bannerimg from '../../src/images/bg1.jpg'
+import bannerimg from '../../src/assets/images/bg1.jpg'
+
+
 
 export default function Services() {
   const services = [
@@ -22,7 +24,7 @@ export default function Services() {
     <div className='bg-gray-50'>
     <img src={bannerimg} className="w-full"/>
     <div className="md:container mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold text-center">Our Services</h2>
+          <h2 className="text-3xl font-bold">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
             {services.map((service, index) => (
               <div key={index} className="service-item bg-white shadow-lg rounded-lg p-8 text-center">

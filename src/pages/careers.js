@@ -1,5 +1,6 @@
 import React from 'react'
-import bannerimg from '../../src/images/bg1.jpg'
+import bannerimg from '../../src/assets/images/bg1.jpg'
+
 
 export default function Careers() {
   const jobVacancies = [
@@ -33,7 +34,7 @@ export default function Careers() {
     <div>
       <img src={bannerimg} className="w-full"/>
       <div className="md:container mx-auto px-6 py-16">
-          <h2 className="text-3xl font-bold text-center">Job Vacancies</h2>
+          <h2 className="text-3xl font-bold">Job Vacancies</h2>
           <div className="overflow-x-auto mt-10">
         <table className="min-w-full bg-white  ">
           <thead>

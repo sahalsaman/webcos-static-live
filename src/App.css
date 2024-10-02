@@ -1,8 +1,8 @@
 .hero {
-    background-image: url('../src/images/hero.jpg') ;
+    background-image: url('../src/assets/images/hero.jpg') ;
 }
 .contact {
-    background-image: url('../src/images/Contact-Us-page.jpg') ;
+    background-image: url('../src/assets/images/Contact-Us-page.jpg') ;
     background-size: 100%;
 }
 .header {
