@@ -8,4 +8,10 @@
 .header {
     transition: background-color 0.3s ease; /* Smooth transition for background color */
   }
-  
+  .card-title-underline {
+    background: linear-gradient(90deg, rgba(0, 0, 0, .5) 1.88%, transparent 35.71%);
+    width: 133px;
+    height: 1px;
+    display: block;
+    margin: 15px 0 20px 0;
+}

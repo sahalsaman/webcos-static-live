@@ -36,14 +36,14 @@ export default function Works() {
         {completedProjects.map((project, index) => (
           <div key={index} className="bg-gradient-to-r from-blue-100 to-blue-400 rounded-lg p-14 mx-auto shadow-lg flex items-center justify-between mb-10">
             {/* Left Section */}
-            <div className="w-1/2 pr-4">
+            <div className="w-1/2 pr-14">
 
               <div className='flex justify-between items-center mb-5' style={{borderBottom:"1px solid rgba(0,0,0,.1)"}}>
                 <h3 className="text-3xl font-semibold mb-4">{project.title}</h3>
                 <span className="bg-blue-100 text-blue-900 text-sm font-semibold px-3 py-1 rounded-full inline-block mb-3">Automotive</span>
               </div>
 
-              <p className="text-gray-700 mb-4 text-xl">{project.description}</p>
+              <p className="text-gray-700 mb-4 text-lg" style={{lineHeight:"35px"}}>{project.description}</p>
 
               <div className='mb-10'>
                 <button className=" text-gray-900  text-sm px-4 py-2 rounded mb-4" style={{backgroundColor:"rgba(0,0,0,.08)"}}>{project.tag}</button>
