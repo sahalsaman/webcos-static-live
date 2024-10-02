@@ -16,17 +16,17 @@ export default function Home() {
   ];
   const words = [
     {
-      name: "Sahal saman",
+      name: "John Marcante",
       image: "",
-      words: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate or a typeface without  "
+      words: "Digital transformation is not about technology, it’s about strategy and new ways of thinking."
     }, {
-      name: "Sahal",
+      name: "Marc Benioff",
       image: "",
-      words: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate or a typeface withou "
+      words: "Every digital transformation is going to begin and end with the customer, and I can see that in the minds of every CEO I talk to."
     }, {
-      name: "Aahal",
+      name: "Mark Barrenechea",
       image: "",
-      words: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate  "
+      words: "Success in a digital world is about both creating a better experience for customers and improving operational efficiency."
     }
   ]
   const completedProjects = [
@@ -59,9 +59,9 @@ export default function Home() {
         <div className="background-overlay" />
         <div className="container mx-auto h-full flex items-center justify-center text-center">
           <div className="text-white space-y-6">
-            <h2 className="text-7xl ">Powerful IT Solutions</h2>
-            <h2 className="text-7xl ">With WEBCOS</h2>
-            {/* <p className="text-2xl">We are a team of talented digital marketers</p> */}
+            <h2 className="text-7xl ">Elevate Your Business</h2>
+            <h2 className="text-7xl ">With WEBCOS Expertise</h2>
+        <p className='text-gray-500  text-3xl'>Innovating Today to Secure Your Business’s Tomorrow.</p>
           </div>
         </div>
       </div>
@@ -84,11 +84,11 @@ export default function Home() {
       </section> */}
       <section id="services" className="services  md:py-16 py-6 bg-gray-50">
         <div className="md:container mx-auto px-6">
-        <p className='text-gray-500  mt-20 text-xl mb-4'>Delivering Excellence and Innovation.</p>
+        <p className='text-gray-500  mt-20 text-xl mb-4'>Innovating the Future with Cutting-Edge Technology.</p>
           <h2 className="text-5xl pb-10">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-6 my-12">
             {services.map((service, index) => (
-              <div key={index} className="service-item bg-white shadow-lg hover:shadow-2xl rounded-lg p-8 pointer">
+              <div key={index} className="cursor-pointer service-item bg-white shadow-lg hover:shadow-2xl rounded-lg p-8">
                 <img src={service.icon} className='mb-10 mt-5' style={{width:"50px"}}/>
                 <h3 className="text-2xl font-semibold">{service.title}</h3>
                 <div className='card-title-underline'></div>
@@ -104,7 +104,7 @@ export default function Home() {
         <h2 className="text-6xl font-bold mb-12 text-white" style={{lineHeight:"80px"}}>Driving Digital Transformation with Our Impactful Projects and Solutions</h2>
 
         {completedProjects.map((project, index) => (
-          <div key={index} className="bg-gradient-to-r from-blue-100 to-blue-400 rounded-lg p-14 mx-auto shadow-lg flex items-center justify-between mb-10">
+          <div key={index} className="bg-gradient-to-r from-blue-100 to-blue-400 rounded-lg p-14 mx-auto shadow-lg flex items-center justify-between mb-10 cursor-pointer">
             {/* Left Section */}
             <div className="w-1/2 pr-14">
 
@@ -159,7 +159,10 @@ export default function Home() {
       <section className=" md:p-20 py-5 bg-gray-50 flex justify-center">
         <div className="md:container bg-black p-10 mx-20 rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-5">
           <p className="text-2xl max-md:text-center font-thin">NEED A CONSULTATION ?</p>
-          <button className="bg-white text-black px-5 py-2 rounded-3xl">Join With me </button>
+          <div className='flex gap-4 text-lg'>
+          <a href='/contact' className="border-white border-2 text-white px-6 py-4 rounded-full hover:bg-white hover:text-black" >Chat with Sales Team</a>
+          <a href='/contact' className="bg-white text-black px-6 py-4 rounded-full border-2 hover:border-white hover:text-white hover:bg-black" >Inquiry Call</a>
+          </div>
         </div>
       </section>
     </div>

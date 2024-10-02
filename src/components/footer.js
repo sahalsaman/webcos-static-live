@@ -1,3 +1,7 @@
+import linkedin from '../assets/icons/linkedin-round-svgrepo-com.svg'
+import facebook from '../assets/icons/facebook-svgrepo-com.svg'
+import instagram from '../assets/icons/instagram-round-svgrepo-com.svg'
+
 function Footer() {
   return (
     <footer className="footer py-6 bg-black text-white">
@@ -20,6 +24,14 @@ function Footer() {
               <li><a href="#" className="hover:underline">Careers</a></li>
               <li><a href="#" className="hover:underline">Contact</a></li>
             </ul>
+          <div className="space-y-4">
+            <p>Follow us</p>
+            <div className="flex gap-3">
+            <a href="#" target='_blank'><img className='w-6' src={linkedin} /> </a>
+            <a href="#" target='_blank' ><img className='w-6' src={facebook} /> </a>
+            <a href="#" target='_blank' ><img className='w-6' src={instagram} /> </a>
+            </div>
+          </div>
           </div>
         </div>
         <div className="mt-8 text-center">
