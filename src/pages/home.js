@@ -59,8 +59,8 @@ export default function Home() {
         <div className="background-overlay" />
         <div className="container mx-auto h-full flex items-center justify-center text-center">
           <div className="text-white space-y-6">
-            <h2 className="text-7xl ">Elevate Your Business</h2>
-            <h2 className="text-7xl ">With WEBCOS Expertise</h2>
+            <h2 className="text-7xl font-bold">Elevate Your Business</h2>
+            <h2 className="text-7xl font-bold">With WEBCOS Expertise</h2>
         <p className='text-gray-500  text-3xl'>Innovating Today to Secure Your Business’s Tomorrow.</p>
           </div>
         </div>

@@ -1,8 +1,21 @@
-import React from 'react'
-import bannerimg from '../../src/assets/images/bg1.jpg'
-
+import React, { useState } from 'react';
+import bannerimg from '../../src/assets/images/bg1.jpg';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div>
       <img src={bannerimg} className="w-full" />
@@ -25,15 +38,51 @@ export default function Contact() {
           </div>
           <div className="contact-form">
             <form className="space-y-6">
-              <input type="text" className="w-full p-3 border border-gray-300 rounded" placeholder="Your Name" required />
-              <input type="email" className="w-full p-3 border border-gray-300 rounded" placeholder="Your Email" required />
-              <input type="text" className="w-full p-3 border border-gray-300 rounded" placeholder="Subject" required />
-              <textarea className="w-full p-3 border border-gray-300 rounded" rows="6" placeholder="Message" required></textarea>
-              <button type="submit" className="btn bg-black text-white py-3 px-6 rounded hover:bg-blue-600 w-full">Send Message</button>
+              <input
+                type="text"
+                name="name"
+                className="w-full p-3 border border-gray-300 rounded"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                className="w-full p-3 border border-gray-300 rounded"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="subject"
+                className="w-full p-3 border border-gray-300 rounded"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                className="w-full p-3 border border-gray-300 rounded"
+                rows="6"
+                placeholder="Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
+              <a 
+                className="btn bg-black text-white py-3 px-6 rounded hover:bg-gray-600 w-full mt-5" 
+                href={`mailto:webcostechlab@gmail.com?subject=${formData.subject}&body=${formData.message}`} >
+                Send Message
+              </a>
             </form>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
