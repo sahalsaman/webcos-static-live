@@ -42,18 +42,18 @@ function Header() {
           <a href="/" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Home
           </a>
-          <a href="/about" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
+          {/* <a href="/about" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             About
-          </a>
+          </a> */}
           <a href="/services" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Services
           </a>
-          <a href="/works" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
+          {/* <a href="/works" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Works
           </a>
           <a href="/careers" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Careers
-          </a>
+          </a> */}
           <a
             href="/contact"
             className={`px-4 py-2 rounded ${
