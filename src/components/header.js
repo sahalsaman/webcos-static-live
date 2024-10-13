@@ -29,7 +29,7 @@ function Header() {
       className={`header fixed top-0 left-0 w-full ${
         isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       } transition-colors duration-300`}
-      style={{ height: '120px' }}
+      style={{ height: `${isScrolled?'80px':'140px'}` }}
     >
       <div className="md:container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 h-full flex justify-between items-center">
         {/* Logo */}
