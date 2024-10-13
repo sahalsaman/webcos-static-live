@@ -25,7 +25,7 @@ export default function About() {
               we specialize in creating custom-built applications that cater to the unique needs of each client.
               Our expertise lies in delivering scalable, secure, and user-friendly products that drive success in today's digital landscape.
               <br />
-            </p>
+            </p> 
           </div>
         </div>
         <div className="flex flex-col lg:flex-row-reverse items-center space-y-8 lg:space-y-0 gap-10">
