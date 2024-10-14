@@ -176,7 +176,7 @@ export default function Home() {
           <a href='https://wa.me/919947929822'  target='_blank' className="bg-white text-black px-6 py-4 rounded-full border-2 hover:border-white hover:text-white hover:bg-black text-center" >Inquiry Call</a>
           </div>
         </div>
-      </section> 
+      </section>
     </div>
   );
 }
