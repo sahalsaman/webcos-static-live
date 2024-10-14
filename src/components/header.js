@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileScreen, setIsMobileScreen] = useState(window.innerWidth <= 768);
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -13,23 +14,33 @@ function Header() {
     }
   };
 
+  const handleResize = () => {
+    setIsMobileScreen(window.innerWidth <= 768); // Check if screen width is mobile size (<= 768px)
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Calculate height based on scroll and screen size
+  const headerHeight = isScrolled ? '80px' : isMobileScreen ? '80px' : '140px';
 
   return (
     <header
       className={`header fixed top-0 left-0 w-full ${
         isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       } transition-colors duration-300`}
-      style={{ height: `${isScrolled?'80px':'140px'}` }}
+      style={{ height: headerHeight }}
     >
       <div className="md:container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 h-full flex justify-between items-center">
         {/* Logo */}
@@ -42,18 +53,9 @@ function Header() {
           <a href="/" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Home
           </a>
-          {/* <a href="/about" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
-            About
-          </a> */}
           <a href="/services" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Services
           </a>
-          {/* <a href="/works" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
-            Works
-          </a>
-          <a href="/careers" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
-            Careers
-          </a> */}
           <a
             href="/contact"
             className={`px-4 py-2 rounded ${
