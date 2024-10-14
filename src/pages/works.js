@@ -28,12 +28,12 @@ export default function Works() {
   ];
 
   return (
-    <div className="bg-black">
-   <div className="md:container mx-auto">
+    <div className="bg-black md:p-20 p-10 flex justify-center">
+  <div className="md:container mx-auto">
     <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
       Delivering Excellence and Innovation.
     </p>
-    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12 text-white" style={{ lineHeight:"80px"}}>
+    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12 text-white ">
       Driving Digital Transformation with Our Impactful Projects and Solutions
     </h2>
 
@@ -49,7 +49,7 @@ export default function Works() {
             </span>
           </div>
 
-          <p className="text-gray-700 mb-4 text-base md:text-lg" style={{lineHeight:"35px"}}>
+          <p className="text-gray-700 mb-4 text-base md:text-lg sm:leading-10">
             {project.description}
           </p>
 
