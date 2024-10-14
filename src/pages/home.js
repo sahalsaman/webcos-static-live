@@ -59,8 +59,8 @@ export default function Home() {
         <div className="background-overlay" />
         <div className="container mx-auto h-full flex items-center justify-center text-center">
           <div className="text-white space-y-6">
-            <h2 className="xsm:text-7xl text-3xl font-bold">Elevate Your Business With WEBCOS Expertise</h2>
-        <p className='text-gray-500  xsm:text-3xl'>Innovating Today to Secure Your Business’s Tomorrow.</p>
+            <h2 className="xsm:text-7xl text-5xl font-bold">Elevate Your Business With WEBCOS Expertise</h2>
+        <p className='text-gray-500 text-xl xsm:text-3xl'>Innovating Today to Secure Your Business’s Tomorrow.</p>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function Home() {
       <section id="services" className="services  md:py-16 py-6 bg-gray-50">
         <div className="md:container mx-auto px-6">
         <p className='text-gray-500  mt-20 text-xl mb-4'>Innovating the Future with Cutting-Edge Technology.</p>
-          <h2 className="text-5xl pb-10">Our Services</h2>
+          <h2 className="sm:text-5xl text-3xl sm:pb-10">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-6 my-12">
             {services.map((service, index) => (
               <div key={index} className="cursor-pointer service-item bg-white shadow-lg hover:shadow-2xl rounded-lg p-8">
@@ -102,7 +102,7 @@ export default function Home() {
     <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
       Delivering Excellence and Innovation.
     </p>
-    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12 text-white" style={{ lineHeight:"80px"}}>
+    <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12 text-white ">
       Driving Digital Transformation with Our Impactful Projects and Solutions
     </h2>
 
@@ -118,7 +118,7 @@ export default function Home() {
             </span>
           </div>
 
-          <p className="text-gray-700 mb-4 text-base md:text-lg" style={{lineHeight:"35px"}}>
+          <p className="text-gray-700 mb-4 text-base md:text-lg sm:leading-10">
             {project.description}
           </p>
 
