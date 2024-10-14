@@ -47,8 +47,6 @@ function Header() {
         <a href="/" className={`text-2xl md:text-3xl font-bold ${isScrolled ? 'text-black' : 'text-white'}`}>
           WEBCOS
         </a>
-
-        {/* Navigation Menu for larger screens */}
         <nav className="hidden md:flex space-x-6 lg:space-x-10 md:items-center">
           <a href="/" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Home
