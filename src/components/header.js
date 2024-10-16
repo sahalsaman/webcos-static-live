@@ -51,6 +51,9 @@ function Header() {
           <a href="/" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Home
           </a>
+          <a href="/about" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
+            About
+          </a>
           <a href="/services" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Services
           </a>
