@@ -9,6 +9,7 @@ import Careers from './pages/careers';
 import Contact from './pages/contact';
 import Services from './pages/services';
 import Works from './pages/works';
+import WhatsappButton from './components/whatsappButton'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/works" element={<Works />} />
     </Routes>
     <Footer></Footer>
+    <WhatsappButton/>
   </Router>
   );
 }

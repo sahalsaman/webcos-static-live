@@ -4,7 +4,9 @@ import mobile from '../../src/assets/icons/mobile-development-coding-code-xcode-
 import marketing from '../../src/assets/icons/ui-basic-announcement-app-alert-megaphone-svgrepo-com.svg'
 import ui from '../../src/assets/icons/ui8-svgrepo-com.svg'
 import web from '../../src/assets/icons/web-development (1).svg'
-import WhatsappButton from '../components/whatsappButton'
+import blog1 from '../../src/assets/posts/blog1.png'
+import blog2 from '../../src/assets/posts/blog2.png'
+import blog3 from '../../src/assets/posts/blog3.png'
 
 export default function Home() {
   const services = [
@@ -15,19 +17,19 @@ export default function Home() {
     { icon: graphic, title: 'Graphic Design', description: 'Enhance your brand with professional graphic design services, from logos to brochures, ensuring a consistent visual identity.' },
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
   ];
-  const words = [
+  const blogs = [
     {
-      name: "John Marcante",
-      image: "",
-      words: "Digital transformation is not about technology, it’s about strategy and new ways of thinking."
+      title: "Building User-Friendly Applications: The Importance of UI/UX Design in Technology",
+      image: blog1,
+      description: "This post will explore the significance of UI/UX design in web and mobile applications and how it affects user engagement and retention"
     }, {
-      name: "Marc Benioff",
-      image: "",
-      words: "Every digital transformation is going to begin and end with the customer, and I can see that in the minds of every CEO I talk to."
+      title: "Choosing the Right Framework for Your Next Project",
+      image: blog2,
+      description: "This post will compare frameworks focusing on their unique features, strengths, and ideal use cases."
     }, {
-      name: "Mark Barrenechea",
-      image: "",
-      words: "Success in a digital world is about both creating a better experience for customers and improving operational efficiency."
+      title: "Harnessing the Power of Cloud Services for Scalable Web and Mobile Applications",
+      image: blog3,
+      description: "This post will delve into the benefits of using cloud services for web and mobile applications and discuss popular cloud platforms"
     }
   ]
   const completedProjects = [
@@ -149,24 +151,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="services" className="services  md:py-16 py-6  bg-gray-50">
-        <div className="md:container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            {words.map((item, index) => (
-              <div class="flex flex-col bg-white shadow-lg items-center justify-center bg-transparent p-8 ">
-                  <figure class="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-black dark:bg-black">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-person-fill text-white dark:text-indigo-300" viewBox="0 0 16 16">
-                      <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-                    </svg>
-                  </figure>
-                  <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.name}</h2>
-                  <p class="mt-4  text-gray-600 dark:text-gray-300 max-md:text-center">{item.words}</p>
+      <section id="services" className="services  md:py-16 py-6  bg-gray-100">
+        <div className="md:container mx-auto px-6 py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {blogs.map((item, index) => (
+              <div class="">
+                  <img src={item.image}/>
+                  <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.title}</h2>
+                  <p class="mt-4  text-gray-600 dark:text-gray-300 max-md:text-center">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="md:p-20 py-5 bg-gray-50 flex justify-center w-full">
+      <section className="md:p-20 py-5  flex justify-center w-full">
         <div className="md:container bg-black p-10 sm:mx-20 rounded-3xl text-white flex flex-col sm:flex-row items-center justify-between gap-5">
           <p className="text-2xl max-md:text-center ">Need a consultation ?</p>
           <div className='flex flex-col md:flex-row gap-4 text-lg'>
@@ -176,7 +174,6 @@ export default function Home() {
         </div>
       </section>
 
-    <WhatsappButton />
     </div>
   );
 }
