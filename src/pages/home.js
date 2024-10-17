@@ -158,7 +158,7 @@ export default function Home() {
               <div class="">
                   <img src={item.image}/>
                   <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.title}</h2>
-                  <p class="mt-4  text-gray-600 dark:text-gray-300 max-md:text-center">{item.description}</p>
+                  <p class="mt-4  text-gray-600 dark:text-gray-300">{item.description}</p>
               </div>
             ))}
           </div>
