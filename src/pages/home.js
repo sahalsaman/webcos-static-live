@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import cloud from '../../src/assets/icons/cloud-services-svgrepo-com.svg'
 import graphic from '../../src/assets/icons/graphic-design-tool-svgrepo-com.svg'
 import mobile from '../../src/assets/icons/mobile-development-coding-code-xcode-svgrepo-com.svg'
@@ -8,7 +9,9 @@ import blog1 from '../../src/assets/posts/blog1.png'
 import blog2 from '../../src/assets/posts/blog2.png'
 import blog3 from '../../src/assets/posts/blog3.png'
 
-export default function Home() {
+export default function Home() {  
+  const navigate = useNavigate();
+
   const services = [
     { icon: web, title: 'Web Development', description: 'We build responsive, high-performing websites tailored to your business needs using the latest web technologies.' },
     { icon: mobile, title: 'Mobile Development', description: 'Create powerful mobile applications that offer great user experiences across all platforms, including iOS and Android.' },
@@ -18,15 +21,20 @@ export default function Home() {
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
   ];
   const blogs = [
-    {
+    { 
+      _id: 'wb01',
       title: "Building User-Friendly Applications: The Importance of UI/UX Design in Technology",
       image: blog1,
       description: "This post will explore the significance of UI/UX design in web and mobile applications and how it affects user engagement and retention"
-    }, {
+    },
+    {
+      _id: 'wb02',
       title: "Choosing the Right Framework for Your Next Project",
       image: blog2,
       description: "This post will compare frameworks focusing on their unique features, strengths, and ideal use cases."
-    }, {
+    },
+    {
+      _id: 'wb03',
       title: "Harnessing the Power of Cloud Services for Scalable Web and Mobile Applications",
       image: blog3,
       description: "This post will delve into the benefits of using cloud services for web and mobile applications and discuss popular cloud platforms"
@@ -55,7 +63,6 @@ export default function Home() {
       link: '#',
     },
   ];
-
   return (
     <div className="index-page">
       <div className="h-screen bg-cover bg-center inset-0 bg-black hero">
@@ -100,7 +107,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="md:p-20 p-10 bg-black flex justify-center">
+      <section className="md:p-20 py-10 px-6  bg-black flex justify-center">
         <div className="md:container mx-auto">
           <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
             Delivering Excellence and Innovation.
@@ -155,7 +162,7 @@ export default function Home() {
         <div className="md:container mx-auto px-6 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {blogs.map((item, index) => (
-              <div class="">
+            <div key={index} className="" onClick={() => navigate(`/blog-detail/${item._id}`)}>
                   <img src={item.image}/>
                   <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.title}</h2>
                   <p class="mt-4  text-gray-600 dark:text-gray-300">{item.description}</p>

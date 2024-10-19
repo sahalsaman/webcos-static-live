@@ -28,7 +28,7 @@ export default function Works() {
   ];
 
   return (
-    <div className="bg-black md:p-20 p-10 flex justify-center">
+    <div className="bg-black md:p-20 px-6 py-10 flex justify-center">
   <div className="md:container mx-auto">
     <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
       Delivering Excellence and Innovation.
