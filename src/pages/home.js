@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import cloud from '../../src/assets/icons/cloud-services-svgrepo-com.svg'
-import graphic from '../../src/assets/icons/graphic-design-tool-svgrepo-com.svg'
+import graphic from '../../src/assets/icons/ecommerce-website-commerce-and-shopping-2-svgrepo-com (1).svg'
 import mobile from '../../src/assets/icons/mobile-development-coding-code-xcode-svgrepo-com.svg'
 import marketing from '../../src/assets/icons/ui-basic-announcement-app-alert-megaphone-svgrepo-com.svg'
 import ui from '../../src/assets/icons/ui8-svgrepo-com.svg'
 import web from '../../src/assets/icons/web-development (1).svg'
+import cbg from '../../src/assets/icons/c-bg.png'
 import blog1 from '../../src/assets/posts/blog1.png'
 import blog2 from '../../src/assets/posts/blog2.png'
 import blog3 from '../../src/assets/posts/blog3.png'
@@ -15,11 +16,12 @@ export default function Home() {
   const navigate = useNavigate();
 
   const services = [
-    { icon: web, title: 'Web Development', description: 'We build responsive, high-performing websites tailored to your business needs using the latest web technologies.' },
-    { icon: mobile, title: 'Mobile Development', description: 'Create powerful mobile applications that offer great user experiences across all platforms, including iOS and Android.' },
+    { icon: web, title: 'Web App Development', description: 'We build responsive, high-performing websites tailored to your business needs using the latest web technologies.' },
+    { icon: mobile, title: 'Mobile App Development', description: 'Create powerful mobile applications that offer great user experiences across all platforms, including iOS and Android.' },
     { icon: marketing, title: 'Digital Marketing', description: 'Boost your online presence with our tailored digital marketing strategies, including SEO, social media, and content marketing.' },
     { icon: ui, title: 'UI/UX Design', description: 'Craft intuitive and visually appealing user interfaces that provide seamless user experiences for web and mobile apps.' },
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
+   { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials.' },
   ];
     const features = [
     {
@@ -121,7 +123,7 @@ export default function Home() {
         <div className="md:container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 gap-14">
             <div className="lg:w-1/2 max-md:text-center">
-              <h2 className="text-6xl font-bold">About Company</h2>
+              <h2 className="text-6xl font-bold">About Us</h2>
               <p className="text-gray-500 text-lg mt-6 font-light leading-relaxed">
                 Webcos is your trusted partner for comprehensive IT solutions. We specialize in web and mobile development, delivering innovative and user-friendly platforms. Our digital marketing services help you grow your brand online, while our UI/UX designs and graphic design work enhance your business identity.
 
@@ -129,7 +131,7 @@ export default function Home() {
               </p>
               <div className='mt-10 flex justify-between border-t-2  border-gray-200 pt-6'>
                 <div className='flex flex-col font-bold'>
-                  <h3 className="text-4xl ">45+</h3>
+                  <div className="text-4xl " s style={{ backgroundImage: `url(${cbg})` }}>45+</div>
                   <p className="text-gray-500 text-md">
                     Projects
                   </p>
@@ -207,14 +209,15 @@ export default function Home() {
         </div>
       </section>
           <section className=" py-24 px-4" style={{backgroundImage: "url('')", backgroundSize: 'cover'}}>
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-16">Why Choose Us</h2>
+      <div className="max-w-6xl mx-auto "> 
+       
+        <h2 className="text-4xl font-bold text-gray-800 mb-16 text-center">Why Choose Us</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {features.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center text-center">
               <div className="bg-gray-100 rounded-full p-4 mb-4">{item.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.desc}</p>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+              <p className="text-md text-gray-600">{item.desc}</p>
             </div>
           ))}
         </div>
