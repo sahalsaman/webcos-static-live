@@ -1,27 +1,52 @@
 import { useNavigate } from 'react-router-dom'
 import cloud from '../../src/assets/icons/cloud-services-svgrepo-com.svg'
-import graphic from '../../src/assets/icons/graphic-design-tool-svgrepo-com.svg'
+import graphic from '../../src/assets/icons/ecommerce-website-commerce-and-shopping-2-svgrepo-com (1).svg'
 import mobile from '../../src/assets/icons/mobile-development-coding-code-xcode-svgrepo-com.svg'
 import marketing from '../../src/assets/icons/ui-basic-announcement-app-alert-megaphone-svgrepo-com.svg'
 import ui from '../../src/assets/icons/ui8-svgrepo-com.svg'
 import web from '../../src/assets/icons/web-development (1).svg'
+import cbg from '../../src/assets/icons/c-bg.png'
 import blog1 from '../../src/assets/posts/blog1.png'
 import blog2 from '../../src/assets/posts/blog2.png'
 import blog3 from '../../src/assets/posts/blog3.png'
+import { Briefcase, DollarSign, ShieldCheck, Star } from 'lucide-react'
 
-export default function Home() {  
+
+export default function Home() {
   const navigate = useNavigate();
 
   const services = [
-    { icon: web, title: 'Web Development', description: 'We build responsive, high-performing websites tailored to your business needs using the latest web technologies.' },
-    { icon: mobile, title: 'Mobile Development', description: 'Create powerful mobile applications that offer great user experiences across all platforms, including iOS and Android.' },
+    { icon: web, title: 'Web App Development', description: 'We build responsive, high-performing websites tailored to your business needs using the latest web technologies.' },
+    { icon: mobile, title: 'Mobile App Development', description: 'Create powerful mobile applications that offer great user experiences across all platforms, including iOS and Android.' },
     { icon: marketing, title: 'Digital Marketing', description: 'Boost your online presence with our tailored digital marketing strategies, including SEO, social media, and content marketing.' },
     { icon: ui, title: 'UI/UX Design', description: 'Craft intuitive and visually appealing user interfaces that provide seamless user experiences for web and mobile apps.' },
-    { icon: graphic, title: 'Graphic Design', description: 'Enhance your brand with professional graphic design services, from logos to brochures, ensuring a consistent visual identity.' },
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
+   { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials.' },
+  ];
+    const features = [
+    {
+      icon: <Briefcase className="w-8 h-8 " />,
+      title: 'Talents',
+      desc: 'A team of ambitious, bright, young professionals expressing themselves.',
+    },
+    {
+      icon: <DollarSign className="w-8 h-8 " />,
+      title: 'Commitment',
+      desc: 'Commitment is at our heart. We are committed to give you a unique, outstanding experience.',
+    },
+    {
+      icon: <ShieldCheck className="w-8 h-8 " />,
+      title: 'Transparency',
+      desc: 'Transparency is in our brains. We talk honestly and act transparently.',
+    },
+    {
+      icon: <Star className="w-8 h-8 " />,
+      title: 'Quality',
+      desc: 'Quality is in the air we breathe. We strive for quality is everything we do.',
+    },
   ];
   const blogs = [
-    { 
+    {
       _id: 'wb01',
       title: "Building User-Friendly Applications: The Importance of UI/UX Design in Technology",
       image: blog1,
@@ -65,37 +90,24 @@ export default function Home() {
   ];
   return (
     <div className="index-page">
+
       <div className="h-screen bg-cover bg-center inset-0 bg-black hero">
         <div className="background-overlay" />
         <div className="container mx-auto h-full flex items-center justify-center text-center">
           <div className="text-white space-y-6">
+
             <h1 className="xsm:text-7xl text-5xl font-bold">Elevate Your Business With WEBCOS Expertise</h1>
             <p className='text-gray-500 text-xl font-light xsm:text-3xl'>Innovating Today to Secure Your Business’s Tomorrow.</p>
+
           </div>
         </div>
       </div>
-      {/* <section id="about" className="about md: md:py-16 py-6">
-        <div className="md:container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 gap-10">
-            <div className="lg:w-1/2">
-              <img src="https://img.freepik.com/free-vector/app-development-concept-design_23-2148670525.jpg?t=st=1727785332~exp=1727788932~hmac=64fb26b71b3db2f62d4033dc6f418d640c1cea574d795bf6e81122370ac4e273&w=1480" alt="About WEBCOS"  />
-            </div>
-            <div className="lg:w-1/2 max-md:text-center">
-              <h2 className="text-4xl font-bold"><span className="text-6xl font-thin">About </span><br /> WEBCOS</h2>
-              <p className="text-gray-700 text-lg mt-4 leading-relaxed">
-                Webcos is your trusted partner for comprehensive IT solutions. We specialize in web and mobile development, delivering innovative and user-friendly platforms. Our digital marketing services help you grow your brand online, while our UI/UX designs and graphic design work enhance your business identity.
 
-                We also offer professional video editing and reliable cloud services to keep your operations secure and scalable. At Webcos, we are committed to providing digital solutions that drive success.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <section id="services" className="services  md:py-16 py-6 bg-gray-50">
         <div className="md:container mx-auto px-6">
           <p className='text-gray-500  mt-20 text-xl mb-4'>Innovating the Future with Cutting-Edge Technology.</p>
           <h2 className="sm:text-6xl text-3xl font-semibold sm:pb-10">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-6 my-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-6 my-12 justify-items-center">
             {services.map((service, index) => (
               <div key={index} className="cursor-pointer service-item bg-white shadow-lg hover:shadow-2xl rounded-lg p-8">
                 <img src={service.icon} className='mb-10 mt-5' style={{ width: "50px" }} />
@@ -104,6 +116,45 @@ export default function Home() {
                 <p className="text-gray-600 text-lg mt-4 leadeing-10">{service.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+      <section id="about" className="about md: md:py-32 py-6">
+        <div className="md:container mx-auto px-6">
+          <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 gap-14">
+            <div className="lg:w-1/2 max-md:text-center">
+              <h2 className="text-6xl font-bold">About Us</h2>
+              <p className="text-gray-500 text-lg mt-6 font-light leading-relaxed">
+                Webcos is your trusted partner for comprehensive IT solutions. We specialize in web and mobile development, delivering innovative and user-friendly platforms. Our digital marketing services help you grow your brand online, while our UI/UX designs and graphic design work enhance your business identity.
+
+                We also offer professional video editing and reliable cloud services to keep your operations secure and scalable. At Webcos, we are committed to providing digital solutions that drive success.
+              </p>
+              <div className='mt-10 flex justify-between border-t-2  border-gray-200 pt-6'>
+                <div className='flex flex-col font-bold'>
+                  <div className="text-4xl " s style={{ backgroundImage: `url(${cbg})` }}>45+</div>
+                  <p className="text-gray-500 text-md">
+                    Projects
+                  </p>
+                </div>
+                <div className='flex flex-col font-bold'>
+                  <h3 className="text-4xl ">34+</h3>
+                  <p className="text-gray-500 text-md">
+                    Working <br/>
+                    engagements
+                  </p>
+                </div>
+                <div className='flex flex-col font-bold'>
+                  <h3 className="text-4xl ">16+</h3>
+                  <p className="text-gray-500 text-md">
+                    Happy <br/>Customers
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <img className='rounded-lg' src="https://www.master-of-finance.org/wp-content/uploads/2020/06/Job-Profile-Applications-Manager-scaled.jpg" alt="About WEBCOS" />
+            </div>
+
           </div>
         </div>
       </section>
@@ -157,15 +208,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+          <section className=" py-24 px-4" style={{backgroundImage: "url('')", backgroundSize: 'cover'}}>
+      <div className="max-w-6xl mx-auto "> 
+       
+        <h2 className="text-4xl font-bold text-gray-800 mb-16 text-center">Why Choose Us</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          {features.map((item, idx) => (
+            <div key={idx} className="flex flex-col items-center text-center">
+              <div className="bg-gray-100 rounded-full p-4 mb-4">{item.icon}</div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+              <p className="text-md text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-      <section id="services" className="services  md:py-16 py-6  bg-gray-100">
+      <section id="services" className="services  md:py-16 py-6 bg-gray-100 ">
         <div className="md:container mx-auto px-6 py-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {blogs.map((item, index) => (
-            <div key={index} className="" onClick={() => navigate(`/blog-detail/${item._id}`)}>
-                  <img src={item.image}/>
-                  <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.title}</h2>
-                  <p class="mt-4  text-gray-600 dark:text-gray-300">{item.description}</p>
+              <div key={index} className="" onClick={() => navigate(`/blog-detail/${item._id}`)}>
+                <img src={item.image} />
+                <h2 class="mt-4 text-2xl font-semibold text-black dark:text-black">{item.title}</h2>
+                <p class="mt-4  text-gray-600 dark:text-gray-300">{item.description}</p>
               </div>
             ))}
           </div>
