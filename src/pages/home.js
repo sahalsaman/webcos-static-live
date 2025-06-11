@@ -21,7 +21,7 @@ export default function Home() {
     { icon: marketing, title: 'Digital Marketing', description: 'Boost your online presence with our tailored digital marketing strategies, including SEO, social media, and content marketing.' },
     { icon: ui, title: 'UI/UX Design', description: 'Craft intuitive and visually appealing user interfaces that provide seamless user experiences for web and mobile apps.' },
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
-   { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials.' },
+   { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials. ' },
   ];
     const features = [
     {
