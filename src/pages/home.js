@@ -9,7 +9,7 @@ import cbg from '../../src/assets/icons/c-bg.png'
 import blog1 from '../../src/assets/posts/blog1.png'
 import blog2 from '../../src/assets/posts/blog2.png'
 import blog3 from '../../src/assets/posts/blog3.png'
-import { Briefcase, DollarSign, ShieldCheck, Star } from 'lucide-react'
+import { Briefcase, Check, DollarSign, Headset, Lightbulb, ShieldCheck, Star } from 'lucide-react'
 
 
 export default function Home() {
@@ -21,28 +21,38 @@ export default function Home() {
     { icon: marketing, title: 'Digital Marketing', description: 'Boost your online presence with our tailored digital marketing strategies, including SEO, social media, and content marketing.' },
     { icon: ui, title: 'UI/UX Design', description: 'Craft intuitive and visually appealing user interfaces that provide seamless user experiences for web and mobile apps.' },
     { icon: cloud, title: 'Cloud Services', description: 'Streamline your operations with secure, scalable cloud infrastructure, offering data storage, backup, and computing power.' },
-   { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials. ' },
+    { icon: graphic, title: 'E-commerce', description: 'Enhance your brand identity with our creative graphic design services, including logos, brochures, and marketing materials. ' },
   ];
-    const features = [
+  const features = [
     {
-      icon: <Briefcase className="w-8 h-8 " />,
+      icon: <Briefcase className="w-5 h-5 " />,
       title: 'Talents',
       desc: 'A team of ambitious, bright, young professionals expressing themselves.',
     },
     {
-      icon: <DollarSign className="w-8 h-8 " />,
+      icon: <DollarSign className="w-5 h-5 " />,
       title: 'Commitment',
       desc: 'Commitment is at our heart. We are committed to give you a unique, outstanding experience.',
     },
     {
-      icon: <ShieldCheck className="w-8 h-8 " />,
+      icon: <ShieldCheck className="w-5 h-5" />,
       title: 'Transparency',
       desc: 'Transparency is in our brains. We talk honestly and act transparently.',
     },
     {
-      icon: <Star className="w-8 h-8 " />,
+      icon: <Star className="w-5 h-5" />,
       title: 'Quality',
       desc: 'Quality is in the air we breathe. We strive for quality is everything we do.',
+    },
+    {
+      icon: <Lightbulb className="w-5 h-5" />,
+      title: 'Innovation',
+      desc: 'We use the latest tools and trends to craft future-ready digital products.',
+    },
+    {
+      icon: <Headset className="w-5 h-5" />,
+      title: 'Support',
+      desc: 'Reliable post-launch support and long-term partnership for your growth.',
     },
   ];
   const blogs = [
@@ -139,14 +149,14 @@ export default function Home() {
                 <div className='flex flex-col font-bold'>
                   <h3 className="text-4xl ">34+</h3>
                   <p className="text-gray-500 text-md">
-                    Working <br/>
+                    Working <br />
                     engagements
                   </p>
                 </div>
                 <div className='flex flex-col font-bold'>
                   <h3 className="text-4xl ">16+</h3>
                   <p className="text-gray-500 text-md">
-                    Happy <br/>Customers
+                    Happy <br />Customers
                   </p>
                 </div>
               </div>
@@ -159,70 +169,36 @@ export default function Home() {
         </div>
       </section>
       <section className="md:p-20 py-10 px-6  bg-black flex justify-center">
-        <div className="md:container mx-auto">
-          <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
-            Delivering Excellence and Innovation.
-          </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 md:mb-12 text-white ">
-            Driving Digital Transformation with Our Impactful Projects and Solutions
-          </h2>
-
-          {completedProjects.map((project, index) => (
-            <div key={index} className="bg-gradient-to-r from-blue-100 to-blue-400 rounded-lg p-6 md:p-14 mx-auto shadow-lg flex flex-col-reverse sm:flex-row items-center justify-between mb-10 cursor-pointer">
-
-              {/* Left Section */}
-              <div className="w-full md:w-1/2 md:pr-10">
-                <div className='flex justify-between items-center mb-3 md:mb-5' style={{ borderBottom: "1px solid rgba(0,0,0,.1)" }}>
-                  <h3 className="text-2xl md:text-3xl font-semibold mb-2 md:mb-4">{project.title}</h3>
-                  <span className="bg-blue-100 text-blue-900 text-xs md:text-sm font-semibold px-2 md:px-3 py-1 rounded-full inline-block mb-3">
-                    Automotive
-                  </span>
+        <div className="md:container mx-auto py-8">
+          <div className='grid md:grid-cols-2 gap-10 '>
+            <div className=" grid grid-cols-1 sm:grid-cols-2  gap-12">
+              {features.map((item, idx) => (
+                <div key={idx} className="flex gap-3 items-center text-center">
+                  <div className="bg-slate-300 rounded-full p-4">{item.icon}</div>
+                  <h3 className="text-lg text-white font-light">{item.title}</h3>
                 </div>
-
-                <p className="text-gray-700 mb-4 text-base md:text-lg sm:leading-10">
-                  {project.description}
-                </p>
-
-                <div className='mb-6 md:mb-10'>
-                  <button className="text-gray-900 text-sm px-4 py-2 rounded mb-4" style={{ backgroundColor: "rgba(0,0,0,.08)" }}>
-                    {project.tag}
-                  </button>
-                </div>
-
-                <a href={project.link} className="text-white bg-black px-4 md:px-6 py-2 md:py-3 rounded hover:bg-gray-800 transition duration-200">
-                  View case study →
-                </a>
-              </div>
-
-              {/* Right Section (Image) */}
-              <div className="w-full md:w-1/2 md:pl-10 mb-6 md:mb-0 bg-blue-100 pt-8 md:pt-16 rounded-lg">
-                <img src={project.image} alt={`${project.title} Screenshot`} className="rounded-lg shadow-lg w-full" />
-              </div>
+              ))}
             </div>
-          ))}
-
-          <div className='flex justify-center'>
-            <a href='/works' className="text-gray-50 px-6 py-3 rounded hover:bg-gray-800 transition duration-200">
-              View more →
-            </a>
+            <div className='text-white '>
+              {/* <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
+            Delivering Excellence and Innovation.
+          </p> */}
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 ">
+                Explore the benefits of <br /> our services
+              </h2>
+              <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' /> We are committed to delivering high-quality solutions</p>
+              <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />Our team of experts is dedicated to providing innovative solutions</p>
+              <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />We prioritize customer satisfaction and strive to exceed expectations</p>
+            </div>
           </div>
+
+          <div className='w-full flex justify-center mt-10'>
+          <a href='/works' className="text-gray-50 px-6 py-3 rounded bg-gray-800 transition duration-200">
+            View more →
+          </a></div>
         </div>
       </section>
-          <section className=" py-24 px-4" style={{backgroundImage: "url('')", backgroundSize: 'cover'}}>
-      <div className="max-w-6xl mx-auto "> 
-       
-        <h2 className="text-4xl font-bold text-gray-800 mb-16 text-center">Why Choose Us</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {features.map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center">
-              <div className="bg-gray-100 rounded-full p-4 mb-4">{item.icon}</div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-              <p className="text-md text-gray-600">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+
 
       <section id="services" className="services  md:py-16 py-6 bg-gray-100 ">
         <div className="md:container mx-auto px-6 py-10">
