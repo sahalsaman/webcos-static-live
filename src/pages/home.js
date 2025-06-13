@@ -192,13 +192,15 @@ export default function Home() {
               <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />Our team of experts is dedicated to providing innovative solutions</p>
               <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />We prioritize customer satisfaction and strive to exceed expectations</p>
             </div>
-             <div className="sm:hidden block grid grid-cols-2  gap-12">
-              {features.map((item, idx) => (
+             <div className="sm:hidden block ">
+          <div className="grid grid-cols-2  gap-12">
+                {features.map((item, idx) => (
                 <div key={idx} className="flex gap-2 sm:gap-3 items-center text-center">
                   <div className="bg-slate-300 rounded-full p-2 sm:p-4">{item.icon}</div>
                   <h3 className="text-lg text-white font-light">{item.title}</h3>
                 </div>
               ))}
+          </div>
             </div>
           </div>
 
