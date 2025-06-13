@@ -63,8 +63,7 @@ function Header() {
            <a href="/careers" className={`${isScrolled ? 'text-gray-700 hover:text-black' : 'text-white'}`}>
             Careers
           </a>
-        </nav>
-          <a
+           <a
             href="/contact"
             className={`px-4 py-2 rounded-full ${
               isScrolled ? 'bg-black text-white hover:bg-gray-800' : 'bg-white text-black hover:bg-gray-300'
@@ -72,6 +71,8 @@ function Header() {
           >
             Contact
           </a>
+        </nav>
+         
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">

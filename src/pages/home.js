@@ -131,7 +131,7 @@ export default function Home() {
       </section>
       <section id="about" className="about md: md:py-32 py-6">
         <div className="md:container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 gap-14">
+          <div className="flex flex-col-reverse lg:flex-row items-center space-y-8 lg:space-y-0 gap-14">
             <div className="lg:w-1/2 max-md:text-center">
               <h2 className="text-6xl font-bold">About Us</h2>
               <p className="text-gray-500 text-lg mt-6 font-light leading-relaxed">
@@ -171,13 +171,15 @@ export default function Home() {
       <section className="md:p-20 py-10 px-6  bg-black flex justify-center">
         <div className="md:container mx-auto py-8">
           <div className='grid md:grid-cols-2 gap-10 '>
-            <div className=" grid grid-cols-1 sm:grid-cols-2  gap-12">
-              {features.map((item, idx) => (
-                <div key={idx} className="flex gap-3 items-center text-center">
-                  <div className="bg-slate-300 rounded-full p-4">{item.icon}</div>
+            <div className="sm:block hidden ">
+             <div className="grid grid-cols-2  gap-12">
+               {features.map((item, idx) => (
+                <div key={idx} className="flex gap-2 sm:gap-3 items-center text-center">
+                  <div className="bg-slate-300 rounded-full p-2 sm:p-4">{item.icon}</div>
                   <h3 className="text-lg text-white font-light">{item.title}</h3>
                 </div>
               ))}
+             </div>
             </div>
             <div className='text-white '>
               {/* <p className='text-gray-500 mt-10 md:mt-20 text-lg md:text-xl mb-4'>
@@ -189,6 +191,14 @@ export default function Home() {
               <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' /> We are committed to delivering high-quality solutions</p>
               <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />Our team of experts is dedicated to providing innovative solutions</p>
               <p className="font-light text-lg mb-5 flex gap-2"><Check className='text-blue-500' />We prioritize customer satisfaction and strive to exceed expectations</p>
+            </div>
+             <div className="sm:hidden block grid grid-cols-2  gap-12">
+              {features.map((item, idx) => (
+                <div key={idx} className="flex gap-2 sm:gap-3 items-center text-center">
+                  <div className="bg-slate-300 rounded-full p-2 sm:p-4">{item.icon}</div>
+                  <h3 className="text-lg text-white font-light">{item.title}</h3>
+                </div>
+              ))}
             </div>
           </div>
 
