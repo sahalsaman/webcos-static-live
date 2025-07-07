@@ -11,7 +11,7 @@ function Footer() {
             <h2 className="text-4xl font-bold">WEBCOS</h2>
             <p>Calicut, Kerala, India</p>
             <p>Whatsapp: +91 994 792 9822</p>
-            <p>Email: webcostechlab@gmail.com</p>
+            <p>Email: info@webcos.co</p>
           </div>
           <div className="flex flex-col xsm:flex-row gap-5 xsm:gap-16 mt-5">
           <div className="flex gap-16">
