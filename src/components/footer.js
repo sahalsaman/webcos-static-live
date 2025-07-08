@@ -31,7 +31,7 @@ function Footer() {
             <div className="flex gap-3">
             <a href="https://www.linkedin.com/company/webcos-technology" target='_blank'><img className='w-6' src={linkedin} /> </a>
             <a href="#" target='_blank' ><img className='w-6' src={facebook} /> </a>
-            <a href="https://www.instagram.com/web.cos/" target='_blank' ><img className='w-6' src={instagram} /> </a>
+            <a href="https://www.instagram.com/webcos.co/" target='_blank' ><img className='w-6' src={instagram} /> </a>
             </div>
           </div>
           </div>
