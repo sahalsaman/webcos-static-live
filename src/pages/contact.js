@@ -67,7 +67,7 @@ export default function Contact() {
               />
               <textarea
                 name="message"
-                className="w-full p-3 border border-gray-300 rounded"
+                className="w-full p-3 border border-gray-300 rounded mb-4"
                 rows="6"
                 placeholder="Message"
                 value={formData.message}
@@ -75,9 +75,9 @@ export default function Contact() {
                 required
               ></textarea>
               <a 
-                className="btn bg-black text-white py-3 px-6 rounded hover:bg-gray-600 w-full mt-5" 
+               
                 href={`mailto:webcostechlab@gmail.com?subject=${formData.subject}&body=${formData.message}`} >
-                Send Message
+               <button type="button"  className="btn bg-black text-white py-3 px-6 rounded hover:bg-gray-600 w-full mt-5" >Send Message</button>
               </a>
             </form>
           </div>

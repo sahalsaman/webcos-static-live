@@ -1,31 +1,9 @@
-import React from 'react';
-import bannerimg from '../../src/assets/images/bg1.jpg'
+
+import { completedProjects } from '../constents';
 
 
 export default function Works() {
-  const completedProjects = [
-    {
-      title: 'E-Commerce Website',
-      description: 'Developed a full-featured e-commerce platform using React, Node.js, and MongoDB.Developed a full-featured e-commerce platform using React, Node.js, and MongoDB.',
-      image: 'https://png.pngtree.com/thumb_back/fh260/background/20230408/pngtree-rainbow-curves-abstract-colorful-background-image_2164067.jpg',
-      tag: 'Web Development',
-      link: '#',
-    },
-    {
-      title: 'Mobile Banking App',
-      description: 'Created a mobile banking app with Flutter, providing real-time transaction tracking.Developed a full-featured e-commerce platform using React, Node.js, and MongoDB.',
-      image: 'https://png.pngtree.com/thumb_back/fh260/background/20230408/pngtree-rainbow-curves-abstract-colorful-background-image_2164067.jpg',
-      tag: 'Mobile Development',
-      link: '#',
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Built a responsive portfolio website using HTML, CSS, and JavaScript.Developed a full-featured e-commerce platform using React, Node.js, and MongoDB.',
-      image: 'https://png.pngtree.com/thumb_back/fh260/background/20230408/pngtree-rainbow-curves-abstract-colorful-background-image_2164067.jpg',
-      tag: 'UI/UX Design',
-      link: '#',
-    },
-  ];
+
 
   return (
     <div className="bg-black md:p-20 px-6 py-10 flex justify-center">
