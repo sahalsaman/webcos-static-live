@@ -11,10 +11,12 @@ import Services from './pages/services';
 import Works from './pages/works';
 import WhatsappButton from './components/whatsappButton'
 import BlogDetail  from './pages/blogDetail';
+import { Analytics } from '@vercel/analytics/react'
 
 function App() {
   return (
     <Router>
+      <Analytics />
     <Header></Header>
     <Routes>
       <Route path="/" element={<Home />} />
