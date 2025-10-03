@@ -1,34 +1,10 @@
 import React from 'react'
 import bannerimg from '../../src/assets/images/web5.jpg'
+import { careers } from '../constents'
 
 
 export default function Careers() {
-  const jobVacancies = [
-    {
-      title: 'Frontend Developer',
-      company: 'Webcos',
-      location: 'Remote',
-      type: 'Full-time',
-      posted: '2 days ago',
-      description: 'Build responsive and interactive UIs with React and Tailwind CSS.',
-    },
-    {
-      title: 'Backend Developer',
-      company: 'Webcos',
-      location: 'New York, USA',
-      type: 'Part-time',
-      posted: '1 week ago',
-      description: 'Develop robust backend APIs with Node.js and Express.',
-    },
-    {
-      title: 'UI/UX Designer',
-      company: 'Webcos',
-      location: 'Remote',
-      type: 'Contract',
-      posted: '3 days ago',
-      description: 'Design clean and modern interfaces for web and mobile apps.',
-    },
-  ];
+
   
   return (
     <div>
@@ -46,7 +22,7 @@ export default function Careers() {
             </tr>
           </thead>
           <tbody>
-            {jobVacancies.map((job, index) => (
+            {careers.map((job, index) => (
               <tr key={index} className="border-t">
                 <td className="px-4 py-2 border-b">{job.title}</td>
                 <td className="px-4 py-2 border-b">{job.posted}</td>
