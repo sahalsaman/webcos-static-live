@@ -48,9 +48,9 @@ export default function Home() {
         <div className='absolute -bottom-10'>
           <MarqueeLeft class="" words={words} />
         </div>
-        <div className='absolute bottom-10 block sm:hidden'>
+        {/* <div className='absolute bottom-10 block sm:hidden'>
           <MarqueeRight class="" words={words} />
-        </div>
+        </div> */}
 
       </div>
 
