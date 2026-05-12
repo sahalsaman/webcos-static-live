@@ -1,19 +1,14 @@
-.hero {
-    background-image: url('../src/assets/images/hero.jpg') ;
-}
-.contact {
-    background-image: url('../src/assets/images/Contact-Us-page.jpg') ;
-    background-size: 100%;
-}
-.header {
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  .card-title-underline {
-    background: linear-gradient(90deg, rgba(0, 0, 0, .5) 1.88%, transparent 35.71%);
-    width: 133px;
-    height: 1px;
-    display: block;
-    margin: 15px 0 20px 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  
+@layer base {
+  html, body {
+    background: #f2f2f2;
+    color: #0a0a0a;
+    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
