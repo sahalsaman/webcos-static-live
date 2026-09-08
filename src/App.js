@@ -1,128 +1,32 @@
 import './App.css';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { BrowserRouter, Link, NavLink, Route, Routes, useParams } from 'react-router-dom';
+import { ArrowLeft, ArrowUpRight, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 
-const products = [
-  { name: 'Retaile.Shop',   des: 'Billing & inventory for retail stores.' },
-  { name: 'Compatetion.Pro',  des: 'Run competitions end-to-end.' },
-  { name: 'Order Manage',  des: 'Orders, invoices, and dispatch.' },
-  { name: 'Estore',         des: 'List, sell, and ship online.' },
+const caseStudies = [
+  { slug:'designing-for-trust', number:'01', category:'Design systems', title:'Designing digital products that earn trust', excerpt:'How clarity, consistency, and considered motion turn useful software into products people rely on.', date:'Aug 28, 2026', readTime:'6 min read', clients:['Northline','Habitat','Goodwell'], body:['Trust is not a layer added after a product is built. It is the cumulative result of every small decision: the language in an error message, the predictability of navigation, and the speed of feedback after an action.','The strongest digital products make complexity feel calm. They expose the right information at the right moment and give people a clear path forward—even when something goes wrong.','We build that confidence through shared design systems, intentional content, accessible interactions, and a relentless focus on the real context in which a product is used.'] },
+  { slug:'ai-that-feels-human', number:'02', category:'Artificial intelligence', title:'Building AI that still feels human', excerpt:'Practical principles for creating intelligent experiences that remain transparent, useful, and warm.', date:'Aug 12, 2026', readTime:'8 min read', clients:['Morrow AI','Folio','Unison'], body:['AI is most valuable when it reduces effort without taking away agency. The interface should make the system’s capabilities clear, set honest expectations, and always leave the person in control.','Human-centered AI depends on progressive disclosure. Offer the useful result first, then make reasoning, sources, or controls available when the user needs greater confidence.','A warm experience is not about giving software a personality. It comes from respectful defaults, understandable language, and thoughtful recovery when the model is uncertain.'] },
+  { slug:'small-teams-big-systems', number:'03', category:'Product strategy', title:'How small teams build ambitious systems', excerpt:'A focused operating model for shipping complex products without adding unnecessary process.', date:'Jul 30, 2026', readTime:'5 min read', clients:['Fieldwork','Relay','Aster'], body:['Small teams move well when the problem is sharply defined and decisions happen close to the work. A shared product narrative replaces layers of documentation and keeps effort pointed in one direction.','The goal is not to move fast everywhere. It is to identify the few decisions that deserve depth, then keep everything else reversible, testable, and small.','Strong foundations compound. A clear information model, a flexible component system, and a healthy release rhythm let a compact team operate with surprising scale.'] },
+  { slug:'beyond-the-dashboard', number:'04', category:'Digital products', title:'The future is beyond the dashboard', excerpt:'Why the next generation of business tools will organize around intent instead of navigation.', date:'Jul 09, 2026', readTime:'7 min read', clients:['Common','Vela Finance','Arc Works'], body:['Dashboards were designed for a world where finding information was the hard part. Today, the greater challenge is turning a growing volume of information into the next meaningful action.','Intent-based products begin with what someone wants to accomplish. They assemble the right context, surface a recommended path, and keep the supporting data close without making it the interface.','This shift changes both product architecture and design. Features become flexible capabilities, while the experience becomes a focused conversation between a person and their work.'] }
 ];
 
-function ProductCard({ p, i }) {
-  const ref = useRef(null);
+function Layout({children}) { return <div className="site-shell"><header className="site-header"><Link className="brand" to="/" aria-label="Webcos home">WEBCOS<span>®</span></Link><nav aria-label="Main navigation"><NavLink to="/" end>Home</NavLink><NavLink to="/case-studies">Case Studies</NavLink><NavLink to="/contact">Contact</NavLink></nav></header><main>{children}</main><footer className="site-footer"><span>© 2026 Webcos Technologies</span><span>Ideas, made useful.</span></footer></div> }
 
-  const handleMove = (e) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    const y = e.clientY - r.top;
-    el.style.setProperty('--mx', `${x}px`);
-    el.style.setProperty('--my', `${y}px`);
-    const rx = ((y / r.height) - 0.5) * -5;
-    const ry = ((x / r.width) - 0.5) * 5;
-    el.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
-  };
-  const handleLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = '';
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="spotlight card-shadow group p-4 sm:p-5 md:p-6 flex flex-col justify-between cursor-pointer border border-ink/20 rounded-2xl bg-white will-change-transform aspect-[3/4] sm:aspect-auto sm:min-h-[160px] md:min-h-[160px] lg:min-h-[160px]"
-    >
-
-
-      <div className="flex items-end justify-between gap-2">
-        <div className="min-w-0">
-          <h3 className="font-display text-lg sm:text-xl md:text-2xl lg:text-[28px] leading-[1.05] tracking-[-0.04em] truncate">
-            {p.name}
-          </h3>
-          <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-[11px] md:text-xs opacity-65 leading-snug max-w-[20ch]">
-            {p.des}
-          </p>
-        </div>
-        <span className="shrink-0 inline-flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-ink/30 transition-all duration-300 group-hover:bg-ink group-hover:text-white group-hover:border-ink group-hover:rotate-45">
-          <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.7} />
-        </span>
-      </div>
-    </motion.div>
-  );
-}
-
-function WordWebcos() {
-  const letters = 'WEBCOS.TECH'.split('');
-  return (
-    <h1
-      className="word font-display font-bold whitespace-nowrap select-none text-center w-full leading-[0.82] tracking-[-0.07em]"
-      style={{ fontSize: 'clamp(2rem, 14vw, 14rem)' }}
-      aria-label="WEBCOS"
-    >
-      {letters.map((ch, idx) => (
-        <motion.span
-          key={idx}
-          className="letter"
-          initial={{ opacity: 0, y: '40%' }}
-          animate={{ opacity: 1, y: '0%' }}
-          transition={{ duration: 0.7, delay: 0.4 + idx * 0.05, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {ch}
-        </motion.span>
-      ))}
-    </h1>
-  );
-}
-
-function App() {
-  return (
-    <div className="h-screen w-screen overflow-hidden bg-white text-ink flex flex-col justify-center px-4 sm:px-8 md:px-20 relative">
-      {/* Subtle dot pattern backdrop */}
-      <div className="dotgrid absolute inset-0 opacity-50 pointer-events-none" />
-
-
-      {/* BOTTOM — WEBCOS */}
-      {/* <div className="relative mt-2 sm:mt-3">
-        <WordWebcos />
-      </div> */}
-
-      {/* MIDDLE — heading + products */}
-      <div className="relative">
-      
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-[-0.04em] mb-4 md:mb-10 text-center">
-            WEBCOS <span className=" opacity-60 font-normal">Applications</span>
-          </h2>
-
-        <div className="w-full max-w-[1400px] grid grid-cols-2 sm:grid-cols-2  gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-          {products.map((p, i) => (
-            <ProductCard key={p.name} p={p} i={i} />
-          ))}
-        </div>
-      </div>
-      <header className="relative flex justify-center w-full">
-        <div className="flex justify-center">
-          <motion.a
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="group inline-flex items-center gap-2 bg-white px-4 sm:px-10 py-4 sm:py-4 text-md font-medium border-2 border-ink rounded-full mt-5 mb-8 sm:mt-8 sm:mb-12 lg:mt-10 lg:mb-16 hover:bg-ink hover:text-white transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[3px_3px_0_0_#0a0a0a]"
-          >
-            Contact
-            <ArrowUpRight className="w-8 h-6 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:rotate-45" strokeWidth={2} />
-          </motion.a>
-        </div>
-      </header>
+function Home(){ return <Layout>
+  <section className="home-hero">
+    <div className="home-label"><span/>Websites, apps, and business software</div>
+    <div className="hero-copy"><h1>WEBCOS</h1><p>We handle your entire<br/>technical problem.</p></div>
+    <div className="hero-bottom">
+      <p>Tell us what your business needs.<br/>We plan it, build it, and keep it running.</p>
+      <Link className="hero-cta" to="/contact">Start a project <ArrowUpRight size={18}/></Link>
     </div>
-  );
-}
+  </section>
+</Layout> }
 
+function CaseStudies(){ return <Layout><section className="page-intro"><span className="kicker">Selected work</span><h1>Case Studies<span>.</span></h1><p>A closer look at the digital products, systems, and experiences we have shaped with ambitious teams.</p></section><section className="case-study-grid" aria-label="Case studies">{caseStudies.map(x=><Link className="case-study-card" to={`/case-studies/${x.slug}`} key={x.slug}><div className="card-top"><span>{x.number}</span><span>{x.category}</span><ArrowUpRight size={24} strokeWidth={1.5}/></div><div className="card-copy"><h2>{x.title}</h2><p>{x.excerpt}</p></div><div className="card-meta"><span>{x.date}</span><span>{x.readTime}</span></div></Link>)}</section></Layout> }
+
+function CaseStudyDetail(){ const {slug}=useParams(); const x=caseStudies.find(i=>i.slug===slug); if(!x)return <Layout><section className="not-found"><h1>Case study not found.</h1><Link to="/case-studies">Back to case studies</Link></section></Layout>; return <Layout><article className="article"><Link className="back-link" to="/case-studies"><ArrowLeft size={17}/> All case studies</Link><header className="article-header"><div className="article-meta"><span>{x.category}</span><span>{x.date} · {x.readTime}</span></div><h1>{x.title}</h1><p>{x.excerpt}</p></header><div className="article-layout"><div className="article-body">{x.body.map(p=><p key={p}>{p}</p>)}</div><aside className="client-list"><span>Associated clients</span>{x.clients.map((c,i)=><div key={c}><span>0{i+1}</span><strong>{c}</strong></div>)}</aside></div></article></Layout> }
+
+function Contact(){ return <Layout><section className="contact-page"><div className="contact-intro"><span className="kicker">Start a conversation</span><h1>Let’s make<br/>something <em>useful.</em></h1></div><div className="contact-links"><a href="mailto:sahalsamankc@gmail.com"><span><Mail size={20}/> Email</span><strong>sahalsamankc@gmail.com</strong><ArrowUpRight/></a><a href="tel:+919995801233"><span><Phone size={20}/> Phone</span><strong>+91 85479 29822</strong><ArrowUpRight/></a></div><div className="social-row"><p>Follow what we’re working on.</p><div><a href="https://www.linkedin.com/company/webcos-techlab" target="_blank" aria-label="LinkedIn"><Linkedin size={23}/></a><a href="https://www.instagram.com/webcos.co/" target="_blank" aria-label="Instagram"><Instagram size={23}/></a></div></div></section></Layout> }
+
+function App(){ return <BrowserRouter><Routes><Route path="/" element={<Home/>}/><Route path="/case-studies" element={<CaseStudies/>}/><Route path="/case-studies/:slug" element={<CaseStudyDetail/>}/><Route path="/contact" element={<Contact/>}/></Routes></BrowserRouter> }
 export default App;
