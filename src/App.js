@@ -1,14 +1,14 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { ArrowUpRight, House, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check, House, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const caseStudies = [
-  { slug:'designing-for-trust', number:'01', category:'Design systems', title:'Designing digital products that earn trust', excerpt:'How clarity, consistency, and considered motion turn useful software into products people rely on.', date:'Aug 28, 2026', readTime:'6 min read', clients:['Northline','Habitat','Goodwell'], body:['Trust is not a layer added after a product is built. It is the cumulative result of every small decision: the language in an error message, the predictability of navigation, and the speed of feedback after an action.','The strongest digital products make complexity feel calm. They expose the right information at the right moment and give people a clear path forward—even when something goes wrong.','We build that confidence through shared design systems, intentional content, accessible interactions, and a relentless focus on the real context in which a product is used.'] },
-  { slug:'ai-that-feels-human', number:'02', category:'Artificial intelligence', title:'Building AI that still feels human', excerpt:'Practical principles for creating intelligent experiences that remain transparent, useful, and warm.', date:'Aug 12, 2026', readTime:'8 min read', clients:['Morrow AI','Folio','Unison'], body:['AI is most valuable when it reduces effort without taking away agency. The interface should make the system’s capabilities clear, set honest expectations, and always leave the person in control.','Human-centered AI depends on progressive disclosure. Offer the useful result first, then make reasoning, sources, or controls available when the user needs greater confidence.','A warm experience is not about giving software a personality. It comes from respectful defaults, understandable language, and thoughtful recovery when the model is uncertain.'] },
-  { slug:'small-teams-big-systems', number:'03', category:'Product strategy', title:'How small teams build ambitious systems', excerpt:'A focused operating model for shipping complex products without adding unnecessary process.', date:'Jul 30, 2026', readTime:'5 min read', clients:['Fieldwork','Relay','Aster'], body:['Small teams move well when the problem is sharply defined and decisions happen close to the work. A shared product narrative replaces layers of documentation and keeps effort pointed in one direction.','The goal is not to move fast everywhere. It is to identify the few decisions that deserve depth, then keep everything else reversible, testable, and small.','Strong foundations compound. A clear information model, a flexible component system, and a healthy release rhythm let a compact team operate with surprising scale.'] },
-  { slug:'beyond-the-dashboard', number:'04', category:'Digital products', title:'The future is beyond the dashboard', excerpt:'Why the next generation of business tools will organize around intent instead of navigation.', date:'Jul 09, 2026', readTime:'7 min read', clients:['Common','Vela Finance','Arc Works'], body:['Dashboards were designed for a world where finding information was the hard part. Today, the greater challenge is turning a growing volume of information into the next meaningful action.','Intent-based products begin with what someone wants to accomplish. They assemble the right context, surface a recommended path, and keep the supporting data close without making it the interface.','This shift changes both product architecture and design. Features become flexible capabilities, while the experience becomes a focused conversation between a person and their work.'] }
+  { slug:'travel-portal', number:'01', category:'Travel Solution', title:'Managing every trip from one simple portal', excerpt:'A complete workspace for travel teams to create packages, prepare itineraries and quotations, manage bookings, and follow every payment without switching between tools.', date:'Faster operations', readTime:'Fewer manual tasks', clients:['Packages','Itineraries & quotations','Bookings & payments'] },
+  { slug:'rental-property-management', number:'02', category:'Property Solution', title:'Making rental property management effortless', excerpt:'One organized system gives property owners a clear view of tenants, rent payments, maintenance requests, and important documents across every property.', date:'Clear rent tracking', readTime:'Better tenant service', clients:['Tenant records','Rent reminders','Maintenance requests'] },
+  { slug:'retail-shop-billing', number:'03', category:'Retail Solution', title:'Faster billing with stock always under control', excerpt:'A straightforward billing system helps shop teams serve customers quickly, monitor inventory in real time, and understand daily sales at a glance.', date:'Quick checkout', readTime:'Live stock visibility', clients:['Fast billing','Stock management','Sales reports'] },
+  { slug:'fest-competition-management', number:'04', category:'Event Solution', title:'Running competitions without spreadsheet confusion', excerpt:'From online registration to schedules, scoring, and final results, organizers can manage the complete event through one dependable application.', date:'Smooth coordination', readTime:'Instant results', clients:['Registration','Score management','Results publishing'] }
 ];
 
 const products = [
@@ -16,6 +16,13 @@ const products = [
   { number:'02', name:'Rental Property Management App', label:'For property owners', description:'Keep properties, tenants, rent payments, maintenance requests, and documents organized without spreadsheets.', features:['Tenant records','Rent reminders','Maintenance tracking'] },
   { number:'03', name:'Retail Shop Billing Software', label:'For retail stores', description:'Create bills quickly, track stock, understand sales, and manage your shop from an easy-to-use app.', features:['Fast billing','Stock management','Sales reports'] },
   { number:'04', name:'Fest & Competition Management App', label:'For events and institutions', description:'Run registrations, participant lists, schedules, scoring, and results for festivals and competitions.', features:['Online registration','Score management','Instant results'] }
+];
+
+const solutionImages = [
+  '/solution-travel-portal.png',
+  '/solution-property-management.png',
+  '/solution-retail-billing.png',
+  '/solution-fest-management.png'
 ];
 
 function Layout({children}) {
@@ -32,7 +39,9 @@ function Layout({children}) {
   }, []);
 
   const navClass = section => activeSection === section ? 'active' : '';
-  return <div className="site-shell"><main>{children}</main><footer className="site-footer"><span>© 2026 Webcos Technologies</span><span>Ideas, made useful.</span></footer><nav className="floating-nav" aria-label="Main navigation"><a className={navClass('home')} onClick={() => setActiveSection('home')} href="#home" aria-label="Home"><House size={17} strokeWidth={1.8}/></a><a className={navClass('products')} onClick={() => setActiveSection('products')} href="#products">Products</a><a className={navClass('case-studies')} onClick={() => setActiveSection('case-studies')} href="#case-studies">Case Studies</a><a className={navClass('contact')} onClick={() => setActiveSection('contact')} href="#contact">Contact</a></nav></div>
+  return <div className="site-shell"><main>{children}</main><footer className="site-footer"><span>© 2026 Webcos Technologies</span><span>Ideas, made useful.</span></footer><nav className="floating-nav" aria-label="Main navigation"><a className={navClass('home')} onClick={() => setActiveSection('home')} href="#home" aria-label="Home"><House size={17} strokeWidth={1.8}/></a><a className={navClass('solutions')} onClick={() => setActiveSection('solutions')} href="#solutions">Solutions</a>
+  {/* <a className={navClass('case-studies')} onClick={() => setActiveSection('case-studies')} href="#case-studies">Case Studies</a> */}
+  <a className={navClass('contact')} onClick={() => setActiveSection('contact')} href="#contact">Contact</a></nav></div>
 }
 
 function Home(){ return <>
@@ -40,23 +49,24 @@ function Home(){ return <>
     <div className="hero-orb hero-orb-one" aria-hidden="true"/>
     <div className="hero-orb hero-orb-two" aria-hidden="true"/>
     <div className="hero-copy">
-      <span className="hero-welcome"><i/>Welcome to Webcos</span>
+      <span className="hero-welcome"><i/>Welcome to</span>
       <h1>WEBCOS</h1>
       <p>We turn your ideas into simple,<br/>useful digital products.</p>
       <div className="hero-actions">
         <a className="hero-cta" href="#contact">Start a project <ArrowUpRight size={18}/></a>
-        <a className="hero-secondary" href="#products">View our products</a>
+        <a className="hero-secondary" href="#solutions">View our solutions</a>
       </div>
     </div>
     <div className="hero-note"><span>Plan</span><i/><span>Build</span><i/><span>Support</span></div>
   </section>
 </> }
 
-function CaseStudies(){ return <section className="page-section" id="case-studies"><div className="page-intro"><span className="kicker">Selected work</span><h1>Case Studies<span>.</span></h1><p>A closer look at the digital products, systems, and experiences we have shaped with ambitious teams.</p></div><div className="case-study-grid" aria-label="Case studies">{caseStudies.map(x=><article className="case-study-card" key={x.slug}><div className="card-top"><span>{x.number}</span><span>{x.category}</span><ArrowUpRight size={24} strokeWidth={1.5}/></div><div className="card-copy"><h2>{x.title}</h2><p>{x.excerpt}</p></div><div className="card-meta"><span>{x.date}</span><span>{x.readTime}</span></div><div className="case-clients"><span>Worked with</span><strong>{x.clients.join(' · ')}</strong></div></article>)}</div></section> }
+// function CaseStudies(){ return <section className="page-section" id="case-studies"><div className="page-intro"><span className="kicker">Solutions in action</span><h1>Case Studies<span>.</span></h1><p>See how our solutions simplify daily work, reduce manual tasks, and help businesses serve people better.</p></div><div className="case-study-grid" aria-label="Case studies">{caseStudies.map(x=><article className="case-study-card" key={x.slug}><div className="card-top"><span>{x.number}</span><span>{x.category}</span><ArrowUpRight size={24} strokeWidth={1.5}/></div><div className="card-copy"><h2>{x.title}</h2><p>{x.excerpt}</p></div><div className="card-meta"><span>{x.date}</span><span>{x.readTime}</span></div><div className="case-clients"><span>Key features</span><strong>{x.clients.join(' · ')}</strong></div></article>)}</div></section> }
 
-function Products(){ return <section className="page-section" id="products"><div className="product-intro"><span className="kicker">Ready for your business</span><h1>Products<span>.</span></h1><div><p>Practical software that makes everyday work faster, clearer, and easier to manage.</p><a href="#contact">Ask about a product <ArrowUpRight size={18}/></a></div></div><div className="product-grid" aria-label="Webcos products">{products.map(product=><article className="product-card" key={product.name}><div className="product-card-top"><span>{product.number}</span><span>{product.label}</span></div><div className="product-card-copy"><h2>{product.name}</h2><p>{product.description}</p></div><ul>{product.features.map(feature=><li key={feature}>{feature}</li>)}</ul><a href={`https://wa.me/919947929822?text=${encodeURIComponent(`Hi Webcos, I would like to know more about ${product.name}.`)}`} target="_blank" rel="noreferrer">Talk to us on WhatsApp <ArrowUpRight size={18}/></a></article>)}</div></section> }
+function Solutions(){ return <section className="page-section solutions-section" id="solutions"><div className="product-intro"><span className="kicker">Ready for your business</span><h1>Solutions<span>.</span></h1><div><p>Practical software that makes everyday work faster, clearer, and easier to manage.</p><a href="#contact">Ask about a solution <ArrowRight size={18}/></a></div></div><div className="solution-showcase" aria-label="Webcos solutions">{products.map((product,index)=><article className="solution-row" key={product.name}><div className="solution-content"><span className="solution-number">{product.number} / {product.label}</span><h2>{product.name}</h2><h3>{index === 0 ? 'Run Your Travel Business With Ease' : index === 1 ? 'Everything About Your Properties, Organized' : index === 2 ? 'Faster Billing. Better Stock Control.' : 'Plan, Score, and Publish With Confidence'}</h3><p>{product.description}</p><ul>{product.features.map(feature=><li key={feature}><Check size={17}/>{feature}</li>)}</ul><a className="solution-action" href={`https://wa.me/919947929822?text=${encodeURIComponent(`Hi Webcos, I would like to book a demo for ${product.name}.`)}`} target="_blank" rel="noreferrer">Book a Demo <ArrowRight size={18}/></a></div><figure><img src={solutionImages[index]} alt={`${product.name} interface preview`} loading="lazy"/></figure></article>)}</div></section> }
 
 function Contact(){ return <section className="contact-page page-section" id="contact"><div className="contact-intro"><span className="kicker">Start a conversation</span><h1>Let’s make<br/>something <em>useful.</em></h1></div><div className="contact-links"><a href="https://wa.me/919947929822?text=Hi%20Webcos%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noreferrer"><span><FontAwesomeIcon icon={faWhatsapp}/> WhatsApp</span><strong>+91 99479 29822</strong><ArrowUpRight/></a><a href="tel:+918547929822"><span><Phone size={20}/> Phone</span><strong>+91 85479 29822</strong><ArrowUpRight/></a><a href="mailto:sahalsamankc@gmail.com"><span><Mail size={20}/> Email</span><strong>sahalsamankc@gmail.com</strong><ArrowUpRight/></a></div><div className="social-row"><p>Follow what we’re working on.</p><div><a href="https://www.linkedin.com/company/webcos-techlab" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={23}/></a><a href="https://www.instagram.com/webcos.co/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={23}/></a></div></div></section> }
 
-function App(){ return <Layout><Home/><Products/><CaseStudies/><Contact/></Layout> }
+function App(){ return <Layout><Home/><Solutions/>
+{/* <CaseStudies/> */}<Contact/></Layout> }
 export default App;
