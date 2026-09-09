@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight, House, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -17,7 +18,22 @@ const products = [
   { number:'04', name:'Fest & Competition Management App', label:'For events and institutions', description:'Run registrations, participant lists, schedules, scoring, and results for festivals and competitions.', features:['Online registration','Score management','Instant results'] }
 ];
 
-function Layout({children}) { return <div className="site-shell"><main>{children}</main><footer className="site-footer"><span>© 2026 Webcos Technologies</span><span>Ideas, made useful.</span></footer><nav className="floating-nav" aria-label="Main navigation"><a href="#home" aria-label="Home"><House size={17} strokeWidth={1.8}/></a><a href="#products">Products</a><a href="#case-studies">Case Studies</a><a href="#contact">Contact</a></nav></div> }
+function Layout({children}) {
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) return undefined;
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible[0]) setActiveSection(visible[0].target.id);
+    }, { rootMargin: '-30% 0px -50% 0px', threshold: [0, .2, .5] });
+    document.querySelectorAll('.page-section').forEach(section => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const navClass = section => activeSection === section ? 'active' : '';
+  return <div className="site-shell"><main>{children}</main><footer className="site-footer"><span>© 2026 Webcos Technologies</span><span>Ideas, made useful.</span></footer><nav className="floating-nav" aria-label="Main navigation"><a className={navClass('home')} onClick={() => setActiveSection('home')} href="#home" aria-label="Home"><House size={17} strokeWidth={1.8}/></a><a className={navClass('products')} onClick={() => setActiveSection('products')} href="#products">Products</a><a className={navClass('case-studies')} onClick={() => setActiveSection('case-studies')} href="#case-studies">Case Studies</a><a className={navClass('contact')} onClick={() => setActiveSection('contact')} href="#contact">Contact</a></nav></div>
+}
 
 function Home(){ return <>
   <section className="home-hero page-section" id="home">
