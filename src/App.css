@@ -92,7 +92,7 @@ main { position:relative; z-index:1; }
 .social-row a:hover { color:#fff; background:var(--ink); transform:translateY(-3px); }
 
 @media (max-width:800px) {
-  .solution-showcase { padding:75px 24px 100px; }
+  .solution-showcase { padding:0 24px 50px; }
   .solution-row { grid-template-columns:1fr; gap:38px; margin-bottom:100px; }
   .solution-row:nth-child(even) .solution-content, .solution-row:nth-child(even) figure { order:initial; }
   .solution-row figure { grid-row:1; }
